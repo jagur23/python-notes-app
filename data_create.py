@@ -1,7 +1,7 @@
 def title_input():
-    return input("Write note title: ").title()
+    return input("Write note title: ")
 
-def notes_body_input():
+def body_input():
     return input("Write note: ")
 
 
