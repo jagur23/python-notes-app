@@ -35,7 +35,13 @@ def write_note(notes):
 
 
 def print_all_notes():
-    return
+    print('Your notes list: ')
+    print()
+    notes = load_notes()
+    for note in notes:
+        print(f"{note['date']} - id {note['id']}. {note['title']}")
+    print()
+
 
 def edit_note():   ## last modifying data and time
     return
