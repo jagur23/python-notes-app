@@ -39,12 +39,25 @@ def print_all_notes():
     print()
     notes = load_notes()
     for note in notes:
-        print(f"{note['date']} - id {note['id']}. {note['title']}")
+        print(f"{note['date']} - id {note['id']} / {note['title']} / {note['body']}")
     print()
 
 
-def edit_note():   ## last modifying data and time
-    return
+def edit_note():
+    print_all_notes
+    notes = load_notes()
+    note_id = int(input('Enter note ID for editing: '))
+    for note in notes:
+        if note['id'] == note_id:
+            note['title'] = input('Write new title: ')
+            note['body'] = input('Write new body: ')
+            note['date'] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        write_note(notes)
+        print('Editing was successful!')
+        print()
+        return
+    print('Note with this ID was not found! Try again.')
+
 
 def remove_note():
     return
