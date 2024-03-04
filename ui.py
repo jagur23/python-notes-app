@@ -8,7 +8,7 @@ def interface():
         'Available actions:\n'
         '1. Create note\n'
         '2. Edit note\n'
-        '3. Remove note\n'
+        '3. Delete note\n'
         '4. Show all notes\n'
         '5. Search note by date\n'
         '6. Exit\n'
@@ -28,7 +28,7 @@ def interface():
             case '2':
                 edit_note()
             case '3':
-                remove_note()
+                delete_note()
             case '4':
                 print_all_notes()
             case '5':

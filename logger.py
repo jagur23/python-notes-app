@@ -44,23 +44,35 @@ def print_all_notes():
 
 
 def edit_note():
-    print_all_notes
+    print_all_notes()
     notes = load_notes()
     note_id = int(input('Enter note ID for editing: '))
     for note in notes:
+        if note["id"] == note_id:
+            note["title"] = input("Write new title: ")
+            note["body"] = input("Write new note body: ")
+            note["date"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            write_note(notes)
+            print("Editing was successful!")
+            print()
+            return
+    print("Note with this ID was not found! Try again.")
+    print()
+
+
+def delete_note():
+    print_all_notes()
+    notes = load_notes()
+    note_id = int(input('Enter the note ID to delete: '))
+    for note in notes:
         if note['id'] == note_id:
-            note['title'] = input('Write new title: ')
-            note['body'] = input('Write new body: ')
-            note['date'] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        write_note(notes)
-        print('Editing was successful!')
-        print()
-        return
+            notes = [note for note in notes if note["id"] != note_id]
+            write_note(notes)
+            print('Note deleted successfully!')
+            print()
+            return
     print('Note with this ID was not found! Try again.')
-
-
-def remove_note():
-    return
+    print()
 
 def search_note():
     return
