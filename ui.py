@@ -1,4 +1,4 @@
-from logger import*
+from note import*
 
 def interface():
 
@@ -10,7 +10,7 @@ def interface():
         '2. Edit note\n'
         '3. Delete note\n'
         '4. Show all notes\n'
-        '5. Search note by date\n'
+        '5. Search notes by date\n'
         '6. Read note\n'
         '7. Exit\n'
         )

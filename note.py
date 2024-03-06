@@ -101,4 +101,25 @@ def read_note_by_id():
 
 
 def search_notes_by_date():
-    return
+    notes = load_notes()
+    filtred_notes = []
+    start_date = input("Enter start date (YYYY-MM-DD): ")
+    end_date = input("Enter start date (YYYY-MM-DD): ")
+    print()
+    try:
+        start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d")
+        end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d")
+        for note in notes:
+            note_created_at = datetime.datetime.strptime(note["date"], "%Y-%m-%d %H:%M:%S")
+            if start_date <= note_created_at <= end_date:
+                filtred_notes.append(note)
+        
+        if filtred_notes:
+            for note in filtred_notes:
+                print(f"{note['date']} / {note['id']} / {note['title']}.")
+        else:
+            print("Notes not found! You did not add notes or make changes to notes on these dates.")
+        print()
+    except ValueError:
+        print("Wrong input! Please use right date format: YYYY-MM-DD.")
+        print()

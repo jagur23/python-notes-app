@@ -22,5 +22,11 @@
         "title": "My note",
         "body": "One two three four five",
         "date": "2024-03-05 17:51:15"
+    },
+    {
+        "id": 618111,
+        "title": "Monday",
+        "body": "Work starts at 6 am.",
+        "date": "2024-03-06 17:09:09"
     }
 ]

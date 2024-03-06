@@ -3,5 +3,3 @@ def title_input():
 
 def body_input():
     return input("Write note: ")
-
-
