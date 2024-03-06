@@ -16,7 +16,7 @@ def create_note():
     new_note["date"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     notes.append(new_note)
     write_note(notes)
-    print("The note is successfully added!")
+    print("The note is successfully created!")
     print()
 
 
@@ -39,7 +39,7 @@ def print_all_notes():
     print()
     notes = load_notes()
     for note in notes:
-        print(f"{note['date']} - id {note['id']} / {note['title']}")
+        print(f"{note['date']} / id {note['id']} / {note['title']}")
     print()
 
 
@@ -54,13 +54,13 @@ def edit_note():
                 note["body"] = input("Write new note body: ")
                 note["date"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 write_note(notes)
-                print("Editing was successful!")
+                print("Note editing was successful!")
                 print()
                 return
         print("Note with this ID was not found! Try again.")
         print()
     except ValueError:
-        print("Wrong input! ID is a number.")
+        print("Wrong input! ID must be a number.")
         print()
 
 
@@ -96,7 +96,7 @@ def read_note_by_id():
                 return
         print("Wrong note ID! Try again.")
     except ValueError:
-            print("Wrong input! ID is a number.")
+            print("Wrong input! ID must be a number.")
             print()
 
 
@@ -104,7 +104,7 @@ def search_notes_by_date():
     notes = load_notes()
     filtred_notes = []
     start_date = input("Enter start date (YYYY-MM-DD): ")
-    end_date = input("Enter start date (YYYY-MM-DD): ")
+    end_date = input("Enter end date (YYYY-MM-DD): ")
     print()
     try:
         start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d")
